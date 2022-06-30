@@ -1,5 +1,6 @@
 const copyMessage = () => {
   const message = localStorage.getItem('message')
+  console.log(message)
   navigator.clipboard.writeText(message)
 }
 
