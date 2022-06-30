@@ -1,16 +1,16 @@
 {
-  "name": "Choose your classes",
-  "version": "1.0",
+  "name": "KITT - Choose your classes",
   "description": "Build a spreadsheet with classes and teacher name",
-  "manifest_version": 2,
-  // "background": {
-  //   "scripts": ["background.js"]
-  // },
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Choose lectures"
+  },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "scripting"
   ],
-  "browser_action": {
-    "default_popup": "popup.html",
-    "default_icon": "images/lw-logo.png"
+  "background": {
+    "service_worker": "background.js"
   }
 }
