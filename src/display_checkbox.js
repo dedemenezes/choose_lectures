@@ -1,8 +1,14 @@
 const addCheckbox = (day) => {
-  day.style.transition = "all .5s ease-in-out";
+  // day.style.transition = "all .5s ease-in-out";
+  day.classList.add('choosen-klass')
   const klass = day.querySelector('.calendar-day-name');
   const week = day.parentElement.previousElementSibling.innerText;
-  const checkbox = `<input type='checkbox' data-week='${week.replace(" ", "_")}' value='${klass.innerText.trim()}' style='margin: 0 24px;'>`;
+  const checkbox = `
+    <i class='animated-bg'>
+      <input type='checkbox' class='checkbox border-animation' data-week='${week.replace(" ", "_")}' value='${klass.innerText.trim()}'>
+    </i>
+  `;
+
   day.insertAdjacentHTML('beforeend', checkbox);
 };
 

@@ -1,3 +1,5 @@
+var style = document.createElement('style');
+style.innerHTML = `
 .choosen-klass {
   transition: all .5s ease-in-out;
 }
@@ -27,7 +29,7 @@
 
 .animated-bg {
   animation-name: bg-blink;
-  animation-duration: 1s;
+  animation-duration: .75s;
   animation-iteration-count: 1;
 }
 
@@ -39,6 +41,7 @@
 
   50% {
     background-color: rgb(180, 26, 188);
+    color: white;
   }
 
   75% {
@@ -48,6 +51,7 @@
 
   87.5% {
     background-color: rgb(180, 26, 188);
+    color: white;
   }
 
   100% {
@@ -55,3 +59,7 @@
     color: black;
   }
 }
+
+
+`;
+document.head.appendChild(style);
