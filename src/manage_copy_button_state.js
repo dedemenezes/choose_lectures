@@ -31,12 +31,12 @@ const hideStartTip = () => {
 }
 
 const displayCopyingTip = () => {
-  const copyingTip = document.querySelector('#copying-tip');
+  const copyingTip = getCopyingTip();
   copyingTip.classList.remove('d-none');
 }
 
 const hideCopyingTip = () => {
-  const copyingTip = document.querySelector('#copying-tip');
+  const copyingTip = getCopyingTip();
 
   copyingTip.classList.add('d-none');
 }
@@ -96,22 +96,7 @@ const manageState = () => {
   }
 };
 
-const backToDefault = (dayDiv) => {
-  dayDiv.classList.remove('bg-purple');
-};
 
-const makeItPurple = (dayDiv) => {
-  dayDiv.classList.add('bg-purple');
-};
-
-const changeBackgroundColor = (input) => {
-  const dayDiv = input.parentElement.parentElement;
-  if (dayDiv.classList.contains('bg-purple')) {
-    backToDefault(dayDiv);
-  } else {
-    makeItPurple(dayDiv);
-  };
-};
 
 
 
