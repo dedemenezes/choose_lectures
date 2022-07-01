@@ -29,10 +29,10 @@ const copyMessage = () => {
 //   event.currentTarget.classList.add('btn-ext--bg-purple')
 //   event.currentTarget.classList.add('btn-ext--disabled')
 //   btnText = document.getElementById('btn-copy-text')
-//   tip = document.getElementById('copy-tip')
+//   tip = document.getElementById('start-tip')
 //   icon = document.getElementById('copy-icon')
 //   btnText.innerText = 'Copied! ✌️'
-//   document.getElementById('ctrl-v').classList.remove('d-none')
+//   document.getElementById('copying-tip').classList.remove('d-none')
 //   icon.classList.add('d-none')
 //   tip.classList.add('d-none')
 // }
@@ -45,10 +45,10 @@ const createList = (event) => {
   // event.currentTarget.classList.add('btn-ext--bg-purple')
   // event.currentTarget.classList.add('btn-ext--disabled')
   // btnText = document.getElementById('btn-copy-text')
-  // tip = document.getElementById('copy-tip')
+  // tip = document.getElementById('start-tip')
   // icon = document.getElementById('copy-icon')
   // btnText.innerText = 'Copied! ✌️'
-  // document.getElementById('ctrl-v').classList.remove('d-none')
+  // document.getElementById('copying-tip').classList.remove('d-none')
   // icon.classList.add('d-none')
   // tip.classList.add('d-none')
 };
