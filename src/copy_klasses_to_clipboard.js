@@ -23,24 +23,34 @@ const copyMessage = () => {
   navigator.clipboard.writeText(message)
 };
 
-const manageState = (event) => {
-  // const purple = "rgb(180, 26, 188)";
-  event.currentTarget.disabled = true
-  event.currentTarget.classList.add('btn-ext--bg-purple')
-  event.currentTarget.classList.add('btn-ext--disabled')
-  btnText = document.getElementById('btn-copy-text')
-  tip = document.getElementById('copy-tip')
-  icon = document.getElementById('copy-icon')
-  btnText.innerText = 'Copied! ✌️'
-  document.getElementById('ctrl-v').classList.remove('d-none')
-  icon.classList.add('d-none')
-  tip.classList.add('d-none')
-}
+// const manageState = (event) => {
+//   // const purple = "rgb(180, 26, 188)";
+//   event.currentTarget.disabled = true
+//   event.currentTarget.classList.add('btn-ext--bg-purple')
+//   event.currentTarget.classList.add('btn-ext--disabled')
+//   btnText = document.getElementById('btn-copy-text')
+//   tip = document.getElementById('copy-tip')
+//   icon = document.getElementById('copy-icon')
+//   btnText.innerText = 'Copied! ✌️'
+//   document.getElementById('ctrl-v').classList.remove('d-none')
+//   icon.classList.add('d-none')
+//   tip.classList.add('d-none')
+// }
 
 const createList = (event) => {
   localStorage.setItem('message', buildMessage(buildCalendar()));
   copyMessage()
-  manageState(event)
+  // manageState(event)
+  // event.currentTarget.disabled = true
+  // event.currentTarget.classList.add('btn-ext--bg-purple')
+  // event.currentTarget.classList.add('btn-ext--disabled')
+  // btnText = document.getElementById('btn-copy-text')
+  // tip = document.getElementById('copy-tip')
+  // icon = document.getElementById('copy-icon')
+  // btnText.innerText = 'Copied! ✌️'
+  // document.getElementById('ctrl-v').classList.remove('d-none')
+  // icon.classList.add('d-none')
+  // tip.classList.add('d-none')
 };
 
 

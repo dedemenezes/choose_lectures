@@ -16,24 +16,24 @@ const changeBackgroundColor = (event) => {
   };
 };
 
-const resetCopyButton = () => {
-  copyButton = document.getElementById('message');
+// const resetCopyButton = () => {
+//   copyButton = document.getElementById('message');
 
-  copyButton.disabled = false
-  copyButton.classList.remove('btn-ext--bg-purple')
-  copyButton.classList.remove('btn-ext--disabled')
-  btnText = document.getElementById('btn-copy-text')
-  tip = document.getElementById('copy-tip')
-  icon = document.getElementById('copy-icon')
-  icon.classList.remove('d-none')
-  tip.classList.remove('d-none')
-  btnText.innerText = 'Copy list'
-  document.getElementById('ctrl-v').classList.add('d-none')
-}
+//   copyButton.disabled = false
+//   copyButton.classList.remove('btn-ext--bg-purple')
+//   copyButton.classList.remove('btn-ext--disabled')
+//   btnText = document.getElementById('btn-copy-text')
+//   tip = document.getElementById('copy-tip')
+//   icon = document.getElementById('copy-icon')
+//   icon.classList.remove('d-none')
+//   tip.classList.remove('d-none')
+//   btnText.innerText = 'Copy list'
+//   document.getElementById('ctrl-v').classList.add('d-none')
+// }
 
 const changeCheckbox = (input) => {
   input.addEventListener('change', (event) => {
-    resetCopyButton()
+    // resetCopyButton()
     changeBackgroundColor(event)
   })
 };

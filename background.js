@@ -21,6 +21,7 @@ chrome.action.onClicked.addListener((tab) => {
       'src/add_copy_to_clipboard_button.js',
       'src/copy_klasses_to_clipboard.js',
       'src/manage_hover_state.js',
+      'src/manage_copy_button_state.js',
       'src/extension_css.js'
     ]
     // function: loadExtension
