@@ -1,11 +1,4 @@
-const manageCopyButtonState = () => {
-  const copyButton = getCopyButton()
-
-  // copyButton.addEventListener('click', manageState)
-
-  changeDayBackgroundColor();
-
-
+const initResetIcon = () => {
   getResetIcon().addEventListener('mouseover', (event) => {
     setButtonText('Reset');
     hideCopyingTip();
@@ -16,7 +9,7 @@ const manageCopyButtonState = () => {
   })
 
   getResetIcon().addEventListener('mouseleave', (event) => {
-    if(btnHasText('Reset')) {
+    if (btnHasText('Reset')) {
       setButtonText('Copied! ✌️');
       displayCopyingTip();
       hideResetTip();
@@ -24,8 +17,6 @@ const manageCopyButtonState = () => {
       removeCssElementKlass(copyButton, 'btn-ext--border_important');
     }
   })
-
+  
   resetEverything()
-};
-
-manageCopyButtonState();
+}

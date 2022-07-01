@@ -4,7 +4,7 @@ const addCheckbox = (day) => {
   const klass = day.querySelector('.calendar-day-name');
   const week = day.parentElement.previousElementSibling.innerText;
   const checkbox = `
-    <i class='animated-bg'>
+    <i class='animated-bg--checkbox'>
       <input type='checkbox' class='checkbox border-animation' data-week='${week.replace(" ", "_")}' value='${klass.innerText.trim()}'>
     </i>
   `;
@@ -12,10 +12,10 @@ const addCheckbox = (day) => {
   day.insertAdjacentHTML('beforeend', checkbox);
 };
 
-const displayCheckboxes = () => {
-  days = document.querySelectorAll('.calendar-day');
+const initCheckbox = () => {
+  days = getDays();
 
   days.forEach(addCheckbox);
 };
 
-displayCheckboxes();
+initCheckbox();

@@ -7,10 +7,10 @@ const removeBorder = (event) => {
   event.currentTarget.classList.remove('btn-ext--border');
 }
 
-const manageHoverState = (id = 'message') => {
+const initHoverState = (id = 'message') => {
   const btn = document.getElementById(id);
   btn.addEventListener('mouseenter', addBorder)
   btn.addEventListener('mouseleave', removeBorder)
 }
 
-manageHoverState();
+initHoverState();

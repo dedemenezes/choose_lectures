@@ -29,7 +29,7 @@ const createList = () => {
 };
 
 
-const copyKlassesToClipboard = () => {
+const initCopyKlassesToClipboard = () => {
   copyButton = getCopyButton()
   copyButton.addEventListener('click', () => {
     createList();
@@ -37,4 +37,4 @@ const copyKlassesToClipboard = () => {
   })
 }
 
-copyKlassesToClipboard();
+initCopyKlassesToClipboard();

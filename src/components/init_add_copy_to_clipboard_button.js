@@ -1,9 +1,4 @@
 const mainButton = (state) => {
-  // const copyingTip = document.querySelector('#copying-tip');
-  // const isVisible = copyingTip.dataset.isVisible === 'true';
-  // console.log(isVisible);
-  // const options = ['copying', 'reset', 'start']
-  // const option = options.filter(option => state === option)
   const content = `
     <div class='menu-trigger-content'>
       <span class='menu-trigger-content-label' id='btn-copy-text'>Copy list</span>
@@ -15,7 +10,7 @@ const mainButton = (state) => {
   `
   const btnHTML = `
     <div id='btn-wrapper'>
-      <button id="message" class="menu-trigger animated-bg">
+      <button id="message" class="menu-trigger animated-bg--button">
         ${content}
       </button>
       <i class="fas fa-undo text-dark ${state['resetIcon']}" id='reset-icon'></i>
@@ -24,8 +19,7 @@ const mainButton = (state) => {
   return btnHTML
 }
 
-
-const addCopyToClipboardButton = () => {
+const initAddCopyToClipboardButton = () => {
   const navMenuSection = document.querySelector('.navbar-collection.d-flex.flex-row-reverse.align-items-center')
   const start = {
     'startTip': '',
@@ -36,4 +30,4 @@ const addCopyToClipboardButton = () => {
   navMenuSection.insertAdjacentHTML('beforeend', mainButton(start))
 };
 
-addCopyToClipboardButton();
+initAddCopyToClipboardButton();

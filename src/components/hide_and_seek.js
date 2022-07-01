@@ -30,13 +30,11 @@ const hideCopyingTip = () => {
 }
 
 const displayResetIcon = () => {
-  const resetIcon = getResetIcon();
-  resetIcon.classList.remove('d-none')
+  getResetIcon().classList.remove('d-none')
 }
 
 const hideResetIcon = () => {
-  const resetIcon = getResetIcon();
-  resetIcon.classList.add('d-none')
+  getResetIcon().classList.add('d-none')
 }
 
 const displayResetTip = () => {

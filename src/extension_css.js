@@ -62,16 +62,26 @@ style.innerHTML = `
 #reset-icon:hover {
   cursor: pointer;
 }
-
-.animated-bg {
-  animation-name: bg-blink;
+.animated-bg--button {
+  animation-name: bg-black-blink;
   animation-duration: 1s;
   animation-iteration-count: 1;
 }
 
-@keyframes bg-blink {
- 0% {
-    background-color: #F7F7F7;
+.animated-bg--checkbox {
+  animation-name: bg-white-blink;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+}
+
+@keyframes bg-black-blink {
+  0% {
+    /* background-color: #F7F7F7; */
+    background-color: #23262b;
     color: black;
   }
 
@@ -79,10 +89,39 @@ style.innerHTML = `
     background-color: rgba(163, 45, 255, 30%);
   }
 
-  75% {
-    background-color: #F7F7F7;
+  // 75% {
+  //   /* background-color: #F7F7F7; */
+  //   background-color: #23262b;
+  //   color: black;
+  // }
+
+  87.5% {
+    background-color: rgba(163, 45, 255, 30%);
+  }
+
+  100% {
+    /* background-color: #F7F7F7; */
+    background-color: #23262b;
     color: black;
   }
+}
+
+@keyframes bg-white-blink {
+  0% {
+    background-color: #F7F7F7;
+    /* background-color: #23262b; */
+    color: black;
+  }
+
+  50% {
+    background-color: rgba(163, 45, 255, 30%);
+  }
+
+  // 75% {
+  //   background-color: #F7F7F7;
+  //   /* background-color: #23262b; */
+  //   color: black;
+  // }
 
   87.5% {
     background-color: rgba(163, 45, 255, 30%);
@@ -90,8 +129,10 @@ style.innerHTML = `
 
   100% {
     background-color: #F7F7F7;
+    /* background-color: #23262b; */
     color: black;
   }
 }
+
 `;
 document.head.appendChild(style);
