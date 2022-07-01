@@ -14,6 +14,9 @@ style.innerHTML = `
 
 .btn-ext--disabled {
   opacity: .8;
+}
+
+.btn-ext--disabled-border {
   border: 1px solid white !important;
 }
 
@@ -45,6 +48,10 @@ style.innerHTML = `
   position: absolute;
   top: 30%;
   left: 82%;
+}
+
+#reset-icon:hover {
+  cursor: pointer;
 }
 
 .animated-bg {
