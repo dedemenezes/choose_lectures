@@ -2,7 +2,7 @@ chrome.action.onClicked.addListener(function(tab) {
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     files: [
-      'src/support/css_disable_klasses.js',
+      'src/support/get_css_disable_klasses.js',
       'src/support/remove_css_element_klass.js',
       'src/support/add_css_element.klass.js',
       'src/support/get_reset_icon.js',
