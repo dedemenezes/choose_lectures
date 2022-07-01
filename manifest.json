@@ -1,10 +1,10 @@
 {
   "name": "KITT - Choose your classes",
-  "description": "Build a spreadsheet with classes and teacher name",
+  "description": "Build a list with with classes and teacher name. Copy it to your clipboard.",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_title": "Choose lectures",
+    "default_title": "Press to start ;)",
     "default_icon": "images/lw-logo.png"
 
   },
