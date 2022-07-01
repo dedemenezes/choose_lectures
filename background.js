@@ -19,7 +19,8 @@ chrome.action.onClicked.addListener((tab) => {
       'src/display_checkbox.js',
       'src/style_div_when_select_checkbox.js',
       'src/add_copy_to_clipboard_button.js',
-      'src/copy_klasses_to_clipboard.js'
+      'src/copy_klasses_to_clipboard.js',
+      'src/manage_hover_state.js'
     ]
     // function: loadExtension
   });

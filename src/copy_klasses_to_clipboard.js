@@ -31,22 +31,9 @@ const createList = (event) => {
   event.currentTarget.innerText = 'Copied! ✌️'
 };
 
-const addBorder = (event) => {
-  event.currentTarget.style.border = '1px solid white'
-}
-
-const removeBorder = (event) => {
-  event.currentTarget.style.border = ''
-}
-
-const manageHoverState = (btn) => {
-  btn.addEventListener('mouseenter', addBorder)
-  btn.addEventListener('mouseleave', removeBorder)
-}
 
 const copyKlassesToClipboard = () => {
   copyButton = document.getElementById('message');
-  manageHoverState(copyButton);
   copyButton.addEventListener('click', createList)
 }
 
