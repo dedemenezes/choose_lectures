@@ -8,6 +8,15 @@ style.innerHTML = `
   margin: 0 24px;
 }
 
+.btn-ext--bg-purple {
+  background-color: rgb(180, 26, 188) !important;
+}
+
+.btn-ext--disabled {
+  opacity: .8;
+  border: 1px solid white !important;
+}
+
 .bg-purple {
   background-color: #61136567;
 }
@@ -29,7 +38,7 @@ style.innerHTML = `
 
 .animated-bg {
   animation-name: bg-blink;
-  animation-duration: .75s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
 }
 
@@ -41,7 +50,6 @@ style.innerHTML = `
 
   50% {
     background-color: rgb(180, 26, 188);
-    color: white;
   }
 
   75% {
@@ -51,7 +59,6 @@ style.innerHTML = `
 
   87.5% {
     background-color: rgb(180, 26, 188);
-    color: white;
   }
 
   100% {
@@ -59,7 +66,6 @@ style.innerHTML = `
     color: black;
   }
 }
-
 
 `;
 document.head.appendChild(style);

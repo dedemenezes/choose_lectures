@@ -6,6 +6,15 @@
   margin: 0 24px;
 }
 
+.btn-ext--bg-purple {
+  background-color: rgb(180, 26, 188) !important;
+}
+
+.btn-ext--disabled {
+  opacity: .8;
+  border: 1px solid white !important;
+}
+
 .bg-purple {
   background-color: #61136567;
 }
