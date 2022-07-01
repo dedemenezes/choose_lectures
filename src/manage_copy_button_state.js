@@ -1,27 +1,9 @@
-const cssDisableKlasses = Object.freeze([
-                            'btn-ext--bg-purple',
-                            'btn-ext--disabled',
-                            'btn-ext--disabled-border',
-                            'btn-ext--disabled-cursor'
-                          ]);
-
-const removeCssElementKlass = (element, cssKlass) => {
-  element.classList.remove(cssKlass);
-}
-
-const addCssElementKlass = (element, cssKlass) => {
-  element.classList.add(cssKlass);
-}
-
 const setButtonDisableToTrue = (copyButton = null) => {
   const button = copyButton || getCopyButton()
   cssDisableKlasses.forEach(cssKlass => addCssElementKlass(button, cssKlass))
 }
 
-const setButtonDisableToFalse = (copyButton = null) => {
-  const button = copyButton || getCopyButton()
-  cssDisableKlasses.forEach(cssKlass => removeCssElementKlass(button, cssKlass))
-}
+
 
 const setButtonText = (text) => {
   const btnText = copyButton.querySelector('#btn-copy-text');
@@ -131,10 +113,7 @@ const changeBackgroundColor = (input) => {
   };
 };
 
-const btnHasText = (text) => {
-  const btnText = copyButton.querySelector('#btn-copy-text');
-  return btnText.innerText.includes(text);
-}
+
 
 
 
