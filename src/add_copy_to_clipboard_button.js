@@ -8,7 +8,14 @@ const addCopyToClipboardButton = () => {
     </div>
     <i class="fas fa-copy text-white" id='copy-icon'></i>
   `
-  const btn = `<button id="message" class="menu-trigger animated-bg">${content}</button>`
+  const btn = `
+    <div id='btn-wrapper'>
+      <button id="message" class="menu-trigger animated-bg">
+        ${content}
+      </button>
+      <i class="fas fa-undo text-dark d-none" id='reset-icon'></i>
+    </div>
+  `
   navMenuSection.insertAdjacentHTML('beforeend', btn)
 };
 

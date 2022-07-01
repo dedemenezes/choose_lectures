@@ -12,6 +12,7 @@ const resetCopyButton = (copyButton) => {
   const tip = copyButton.querySelector('#copy-tip')
   tip.classList.remove('d-none')
   copyButton.querySelector('#ctrl-v').classList.add('d-none')
+  document.querySelector('#reset-icon').classList.add('d-none')
 }
 
 const disableCopyButton = () => {
@@ -27,6 +28,7 @@ const disableCopyButton = () => {
   const icon = copyButton.querySelector('#copy-icon')
   icon.classList.add('d-none')
   copyButton.querySelector('#ctrl-v').classList.remove('d-none')
+  document.querySelector('#reset-icon').classList.remove('d-none')
 }
 
 const manageState = (event) => {

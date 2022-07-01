@@ -36,6 +36,17 @@ style.innerHTML = `
   border: 1px solid white;
 }
 
+#btn-wrapper {
+  position: relative;
+}
+
+#reset-icon {
+  color: white !important;
+  position: absolute;
+  top: 30%;
+  left: 82%;
+}
+
 .animated-bg {
   animation-name: bg-blink;
   animation-duration: 1s;
@@ -66,6 +77,5 @@ style.innerHTML = `
     color: black;
   }
 }
-
 `;
 document.head.appendChild(style);

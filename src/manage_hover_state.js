@@ -14,10 +14,26 @@ const removeBorder = (event) => {
   }
 }
 
+const addResetButton = (event) => {
+  copyIcon = document.querySelector('#copy-icon');
+  if (copyIcon.classList.contains('d-none')) {
+    document.querySelector('#reset-icon').classList.remove('d-none')
+  }
+};
+
+const removeResetButton = (event) => {
+  if (copyIcon.classList.contains('d-none')) {
+    document.querySelector('#reset-icon').classList.add('d-none')
+  }
+};
 const manageHoverState = () => {
   btn = document.getElementById('message');
   btn.addEventListener('mouseenter', addBorder)
   btn.addEventListener('mouseleave', removeBorder)
+
+  // btnWraper = document.querySelector('#btn-wrapper');
+  // btnWraper.addEventListener('mouseover', addResetButton)
+  // btnWraper.addEventListener('mouseleave', removeResetButton)
 }
 
 manageHoverState();
