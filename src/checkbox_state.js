@@ -30,9 +30,11 @@ const styleDayDivWhenSelectCheckbox = () => {
 
 
 const checkboxState = () => {
-  styleDayDivWhenSelectCheckbox();
+  // styleDayDivWhenSelectCheckbox();
   const inputs = document.querySelectorAll('input[type="checkbox"]');
-  inputs.forEach((input) => {
-    changeCheckbox(input);
-  });
+  debugger
+  inputs.forEach(changeCheckbox);
+
 };
+
+checkboxState();
