@@ -142,7 +142,7 @@ const manageCopyButtonState = () => {
 
   copyButton.addEventListener('click', manageState)
 
-  const inputs = document.querySelectorAll('input[type="checkbox"]');
+  const inputs = getCheckboxInputs();
 
 
   inputs.forEach((input) => {
@@ -160,14 +160,18 @@ const manageCopyButtonState = () => {
     hideCopyingTip();
     displayResetTip();
     const copyButton = document.querySelector('#message');
-    removeCssElementKlass(copyButton, 'btn-ext--disabled')
+    removeCssElementKlass(copyButton, 'btn-ext--disabled');
+    addCssElementKlass(copyButton, 'btn-ext--border_important');
   })
+
   document.querySelector('#reset-icon').addEventListener('mouseleave', (event) => {
     if(btnHasText('Reset')) {
       setButtonText('Copied! ✌️');
       displayCopyingTip();
       hideResetTip();
       addCssElementKlass(copyButton, 'btn-ext--disabled')
+      removeCssElementKlass(copyButton, 'btn-ext--border_important');
+
 
     }
   })

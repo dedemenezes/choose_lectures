@@ -26,14 +26,14 @@ const changeCheckbox = (input) => {
 
 
 // const styleDayDivWhenSelectCheckbox = () => {
-//   const inputs = document.querySelectorAll('input[type="checkbox"]');
+//   const inputs = getCheckboxInputs();
 //   inputs.forEach(changeCheckbox);
 // };
 
 
 const checkboxState = () => {
   // styleDayDivWhenSelectCheckbox();
-  const inputs = document.querySelectorAll('input[type="checkbox"]');
+  const inputs = getCheckboxInputs();
   inputs.forEach(changeCheckbox);
 
 };

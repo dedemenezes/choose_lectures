@@ -1,5 +1,5 @@
 const chosenKlasses = () => {
-  const inputs = document.querySelectorAll('input[type="checkbox"]');
+  const inputs = getCheckboxInputs();
   return Array.from(inputs)
     .filter(input => input.checked)
     .map(input => input.value);

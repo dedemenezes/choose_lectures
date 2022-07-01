@@ -9,7 +9,7 @@ style.innerHTML = `
 }
 
 .btn-ext--bg-purple {
-  background-color: rgb(180, 26, 188) !important;
+    background-color: rgba(163, 45, 255, 30%) !important;
 }
 
 .btn-ext--disabled {
@@ -17,7 +17,7 @@ style.innerHTML = `
 }
 
 .btn-ext--disabled-border {
-  border: 1px solid white !important;
+  border: 0 transparent !important;
 }
 
 .btn-ext--disabled-cursor {
@@ -26,7 +26,7 @@ style.innerHTML = `
 
 
 .bg-purple {
-  background-color: #61136567;
+    background-color: rgba(163, 45, 255, 30%);
 }
 
 .bg-default {
@@ -42,6 +42,10 @@ style.innerHTML = `
 
 .btn-ext--border {
   border: 1px solid white;
+}
+
+.btn-ext--border_important {
+  border: 1px solid white !important;
 }
 
 #btn-wrapper {

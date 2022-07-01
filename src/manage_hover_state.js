@@ -1,13 +1,14 @@
 const addBorder = (event) => {
-  event.currentTarget.classList.add('btn-ext--border')
+  // const btn = document.getElementById('message');
+  event.currentTarget.classList.add('btn-ext--border');
 }
 
 const removeBorder = (event) => {
-  event.currentTarget.classList.remove('btn-ext--border')
+  event.currentTarget.classList.remove('btn-ext--border');
 }
 
-const manageHoverState = () => {
-  btn = document.getElementById('message');
+const manageHoverState = (id = 'message') => {
+  const btn = document.getElementById(id);
   btn.addEventListener('mouseenter', addBorder)
   btn.addEventListener('mouseleave', removeBorder)
 }
