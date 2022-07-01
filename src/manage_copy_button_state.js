@@ -14,12 +14,12 @@ const addCssElementKlass = (element, cssKlass) => {
 }
 
 const setButtonDisableToTrue = (copyButton = null) => {
-  const button = copyButton || document.querySelector('#message');
+  const button = copyButton || getCopyButton()
   cssDisableKlasses.forEach(cssKlass => addCssElementKlass(button, cssKlass))
 }
 
 const setButtonDisableToFalse = (copyButton = null) => {
-  const button = copyButton || document.querySelector('#message');
+  const button = copyButton || getCopyButton()
   cssDisableKlasses.forEach(cssKlass => removeCssElementKlass(button, cssKlass))
 }
 
@@ -87,6 +87,7 @@ const resetCopyButton = (copyButton) => {
   hideCopyingTip();
   hideResetIcon();
   hideResetTip();
+  removeCssElementKlass(getCopyButton(), 'btn-ext--border_important');
 }
 
 
@@ -100,12 +101,12 @@ const disableCopyButton = (copyButton) => {
 }
 
 const isButtonDisabled = (copyButton = null) => {
-  const button = copyButton || document.querySelector('#message');
+  const button = copyButton || getCopyButton()
   return button.classList.contains('btn-ext--disabled')
 }
 
 const manageState = () => {
-  const copyButton = document.querySelector('#message');
+  const copyButton = getCopyButton()
   if (btnHasText('Copy')) {
     if (!isButtonDisabled(copyButton)) {
       disableCopyButton(copyButton);
@@ -138,7 +139,7 @@ const btnHasText = (text) => {
 
 
 const manageCopyButtonState = () => {
-  const copyButton = document.querySelector('#message');
+  const copyButton = getCopyButton()
 
   copyButton.addEventListener('click', manageState)
 
@@ -159,7 +160,7 @@ const manageCopyButtonState = () => {
     setButtonText('Reset');
     hideCopyingTip();
     displayResetTip();
-    const copyButton = document.querySelector('#message');
+    const copyButton = getCopyButton()
     removeCssElementKlass(copyButton, 'btn-ext--disabled');
     addCssElementKlass(copyButton, 'btn-ext--border_important');
   })

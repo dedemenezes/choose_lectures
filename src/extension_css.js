@@ -70,13 +70,13 @@ style.innerHTML = `
 }
 
 @keyframes bg-blink {
-  0% {
+ 0% {
     background-color: #F7F7F7;
     color: black;
   }
 
   50% {
-    background-color: rgb(180, 26, 188);
+    background-color: rgba(163, 45, 255, 30%);
   }
 
   75% {
@@ -85,7 +85,7 @@ style.innerHTML = `
   }
 
   87.5% {
-    background-color: rgb(180, 26, 188);
+    background-color: rgba(163, 45, 255, 30%);
   }
 
   100% {

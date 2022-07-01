@@ -4,6 +4,10 @@ const resetIcon = () => {
     resetCopyButton();
     Array.from(getCheckboxInputs()).filter(input => input.checked).forEach((input) => {
       changeBackgroundColor(input);
+      console.log(copyButton.classList);
+
+
+      resetCopyButton(copyButton);
       input.checked = false;
     })
   })

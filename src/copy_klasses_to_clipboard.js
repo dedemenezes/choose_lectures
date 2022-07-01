@@ -55,7 +55,7 @@ const createList = (event) => {
 
 
 const copyKlassesToClipboard = () => {
-  copyButton = document.getElementById('message');
+  copyButton = getCopyButton()
   copyButton.addEventListener('click', createList)
 }
 
