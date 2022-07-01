@@ -104,20 +104,54 @@ const manageState = () => {
   }
 };
 
-const resetButtonIfChangeCheckbox = (input) => {
-  input.addEventListener('change', () => {
-    if (isButtonDisabled()) {
-      resetCopyButton();
-    };
-  });
-}
+const backToDefault = (dayDiv) => {
+  dayDiv.classList.remove('bg-purple');
+};
+
+const makeItPurple = (dayDiv) => {
+  dayDiv.classList.add('bg-purple');
+};
+
+const changeBackgroundColor = (input) => {
+  // event.currentTarget.style.backgroundColor = '#611365'
+  const dayDiv = input.parentElement.parentElement;
+  if (dayDiv.classList.contains('bg-purple')) {
+    backToDefault(dayDiv);
+  } else {
+    makeItPurple(dayDiv);
+  };
+};
+
+// changeBackgroundColor(event.currentTarget)
+// const resetButtonIfChangeCheckbox = (input) => {
+//   input.addEventListener('change', (event) => {
+//     if (isButtonDisabled()) {
+//       resetCopyButton();
+//     };
+//   });
+// }
+
+// const changeCheckbox = (input) => {
+//   input.addEventListener('change', (event) => {
+//     changeBackgroundColor(event.currentTarget)
+//   })
+// };
 
 const manageCopyButtonState = () => {
   const copyButton = document.querySelector('#message');
   copyButton.addEventListener('click', manageState)
 
   const inputs = document.querySelectorAll('input[type="checkbox"]');
-  inputs.forEach(resetButtonIfChangeCheckbox);
+
+
+  inputs.forEach((input) => {
+    input.addEventListener('change', (event) => {
+      changeBackgroundColor(event.currentTarget)
+      if (isButtonDisabled()) {
+        resetCopyButton();
+      };
+    });
+  });
 
 
   document.querySelector('#reset-icon').addEventListener('mouseover', (event) => {
@@ -129,6 +163,16 @@ const manageCopyButtonState = () => {
     setButtonText('Copied! ✌️');
     displayCopyingTip()
     hideResetTip()
+  })
+
+  const icon = document.querySelector('#reset-icon');
+  icon.addEventListener('click', () => {
+    // reset btn
+    // reset checkboxes
+    Array.from(inputs).filter(input => input.checked).forEach((input) => {
+      changeBackgroundColor(input);
+      input.checked = false;
+    })
   })
 };
 

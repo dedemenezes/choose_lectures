@@ -17,7 +17,7 @@ chrome.action.onClicked.addListener((tab) => {
     target: { tabId: tab.id },
     files: [
       'src/display_checkbox.js',
-      'src/checkbox_state.js',
+      // 'src/checkbox_state.js',
       'src/add_copy_to_clipboard_button.js',
       'src/copy_klasses_to_clipboard.js',
       'src/manage_hover_state.js',
