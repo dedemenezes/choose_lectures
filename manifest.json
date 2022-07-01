@@ -4,7 +4,9 @@
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_title": "Choose lectures"
+    "default_title": "Choose lectures",
+    "default_icon": "images/lw-logo.png"
+
   },
   "permissions": [
     "activeTab",
