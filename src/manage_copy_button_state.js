@@ -3,18 +3,20 @@ const setButtonText = (text) => {
   btnText.innerText = text;
 }
 
-const setButtonDisableToTrue = (copyButton) => {
-  copyButton.disabled = true
-  copyButton.classList.add('btn-ext--bg-purple')
-  copyButton.classList.add('btn-ext--disabled')
-  copyButton.classList.add('btn-ext--disabled-border')
+const setButtonDisableToTrue = (copyButton = null) => {
+  const button = copyButton || document.querySelector('#message');
+  button.classList.add('btn-ext--bg-purple')
+  button.classList.add('btn-ext--disabled')
+  button.classList.add('btn-ext--disabled-border')
+  button.classList.add('btn-ext--disabled-cursor')
 }
 
-const setButtonDisableToFalse = (copyButton) => {
-  copyButton.disabled = false
-  copyButton.classList.remove('btn-ext--bg-purple')
-  copyButton.classList.remove('btn-ext--disabled')
-  copyButton.classList.remove('btn-ext--disabled-border')
+const setButtonDisableToFalse = (copyButton = null) => {
+  const button = copyButton || document.querySelector('#message');
+  button.classList.remove('btn-ext--bg-purple')
+  button.classList.remove('btn-ext--disabled')
+  button.classList.remove('btn-ext--disabled-border')
+  button.classList.remove('btn-ext--disabled-cursor')
 }
 
 const displayCopyIcon = () => {
@@ -43,8 +45,8 @@ const displayCopyingTip = () => {
 }
 
 const hideCopyingTip = () => {
-  const ctrlV = copyButton.querySelector('#copying-tip');
-  ctrlV.classList.add('d-none');
+  const copyingTip = copyButton.querySelector('#copying-tip');
+  copyingTip.classList.add('d-none');
 }
 
 const displayResetIcon = () => {
@@ -57,9 +59,19 @@ const hideResetIcon = () => {
   resetIcon.classList.add('d-none')
 }
 
+const displayResetTip = () => {
+  const resetTip = document.querySelector('#reset-tip');
+  resetTip.classList.remove('d-none')
+}
+
+const hideResetTip = () => {
+  const resetTip = document.querySelector('#reset-tip');
+  resetTip.classList.add('d-none')
+}
+
 const resetCopyButton = (copyButton) => {
   // console.log('RESETTTTTTTTT')
-  setButtonDisableToFalse(copyButton);
+  setButtonDisableToFalse();
   setButtonText('Copy list');
   displayCopyIcon();
   displayStartTip();
@@ -70,7 +82,7 @@ const resetCopyButton = (copyButton) => {
 
 const disableCopyButton = (copyButton) => {
   // console.log('hi disable')
-  setButtonDisableToTrue(copyButton);
+  setButtonDisableToTrue();
   setButtonText('Copied! ✌️');
   hideCopyIcon();
   hideStartTip();
@@ -78,10 +90,14 @@ const disableCopyButton = (copyButton) => {
   displayResetIcon();
 }
 
-const manageState = (event) => {
-  const copyButton = document.querySelector('#message');
+const isButtonDisabled = (copyButton = null) => {
+  const button = copyButton || document.querySelector('#message');
+  return button.classList.contains('btn-ext--disabled')
+}
 
-  if (copyButton.disabled) {
+const manageState = () => {
+  const copyButton = document.querySelector('#message');
+  if (isButtonDisabled(copyButton)) {
     resetCopyButton(copyButton);
   } else {
     disableCopyButton(copyButton);
@@ -90,8 +106,8 @@ const manageState = (event) => {
 
 const resetButtonIfChangeCheckbox = (input) => {
   input.addEventListener('change', () => {
-    if (copyButton.disabled) {
-      manageState();
+    if (isButtonDisabled()) {
+      resetCopyButton();
     };
   });
 }
@@ -105,20 +121,14 @@ const manageCopyButtonState = () => {
 
 
   document.querySelector('#reset-icon').addEventListener('mouseover', (event) => {
-    const btnText = copyButton.querySelector('#btn-copy-text');
-    btnText.innerText = 'Reset';
-    const ctrlV = copyButton.querySelector('#copying-tip')
-    ctrlV.classList.add('d-none')
-    const resetTip = copyButton.querySelector('#reset-tip')
-    resetTip.classList.remove('d-none')
+    setButtonText('Reset');
+    hideCopyingTip()
+    displayResetTip()
   })
   document.querySelector('#reset-icon').addEventListener('mouseleave', (event) => {
-    const btnText = copyButton.querySelector('#btn-copy-text')
-    btnText.innerText = 'Copied! ✌️'
-    const ctrlV = copyButton.querySelector('#copying-tip')
-    ctrlV.classList.remove('d-none')
-    const resetTip = copyButton.querySelector('#reset-tip')
-    resetTip.classList.add('d-none')
+    setButtonText('Copied! ✌️');
+    displayCopyingTip()
+    hideResetTip()
   })
 };
 

@@ -20,6 +20,11 @@ style.innerHTML = `
   border: 1px solid white !important;
 }
 
+.btn-ext--disabled-cursor {
+    cursor: default !important;
+}
+
+
 .bg-purple {
   background-color: #61136567;
 }
