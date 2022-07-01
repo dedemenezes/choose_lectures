@@ -1,20 +1,26 @@
-const resetCopyButton = (copyButton) => {
-  console.log('hi reset')
-
+const setButtonToDisable = (copyButton) => {
   copyButton.disabled = false
   copyButton.classList.remove('btn-ext--bg-purple')
   copyButton.classList.remove('btn-ext--disabled')
   copyButton.classList.remove('btn-ext--disabled-border')
-  console.log(copyButton)
+}
+
+const resetCopyButton = (copyButton) => {
+  setButtonToDisable(copyButton);
+
   const btnText = copyButton.querySelector('#btn-copy-text')
   btnText.innerText = 'Copy list'
+
   const icon = copyButton.querySelector('#copy-icon')
   icon.classList.remove('d-none')
+
   const tip = copyButton.querySelector('#copy-tip')
   tip.classList.remove('d-none')
   // copyButton.querySelector('#ctrl-v').classList.add('d-none')
+
   const ctrlV = copyButton.querySelector('#ctrl-v')
   ctrlV.classList.add('d-none')
+
   document.querySelector('#reset-icon').classList.add('d-none')
 }
 
@@ -46,17 +52,21 @@ const manageState = (event) => {
   }
 };
 
-const manageCopyButtonState = () => {
-  const inputs = document.querySelectorAll('input[type="checkbox"]');
-  const copyButton = document.querySelector('#message');
-  inputs.forEach((input) => {
-    input.addEventListener('change', () => {
-      if (copyButton.disabled) {
-        manageState();
-      };
-    });
+const resetButtonIfChangeCheckbox = (input) => {
+  input.addEventListener('change', () => {
+    if (copyButton.disabled) {
+      manageState();
+    };
   });
+}
+
+const manageCopyButtonState = () => {
+  const copyButton = document.querySelector('#message');
   copyButton.addEventListener('click', manageState)
+
+  const inputs = document.querySelectorAll('input[type="checkbox"]');
+  inputs.forEach(input => resetButtonIfChangeCheckbox);
+
 
   document.querySelector('#reset-icon').addEventListener('mouseover', (event) => {
     const btnText = copyButton.querySelector('#btn-copy-text');
