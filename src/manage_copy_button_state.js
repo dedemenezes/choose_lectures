@@ -1,22 +1,31 @@
-const setButtonText = (text) => {
-  const btnText = copyButton.querySelector('#btn-copy-text');
-  btnText.innerText = text;
+const cssDisableKlasses = Object.freeze([
+                            'btn-ext--bg-purple',
+                            'btn-ext--disabled',
+                            'btn-ext--disabled-border',
+                            'btn-ext--disabled-cursor'
+                          ]);
+
+const removeCssElementKlass = (element, cssKlass) => {
+  element.classList.remove(cssKlass);
+}
+
+const addCssElementKlass = (element, cssKlass) => {
+  element.classList.add(cssKlass);
 }
 
 const setButtonDisableToTrue = (copyButton = null) => {
   const button = copyButton || document.querySelector('#message');
-  button.classList.add('btn-ext--bg-purple')
-  button.classList.add('btn-ext--disabled')
-  button.classList.add('btn-ext--disabled-border')
-  button.classList.add('btn-ext--disabled-cursor')
+  cssDisableKlasses.forEach(cssKlass => addCssElementKlass(button, cssKlass))
 }
 
 const setButtonDisableToFalse = (copyButton = null) => {
   const button = copyButton || document.querySelector('#message');
-  button.classList.remove('btn-ext--bg-purple')
-  button.classList.remove('btn-ext--disabled')
-  button.classList.remove('btn-ext--disabled-border')
-  button.classList.remove('btn-ext--disabled-cursor')
+  cssDisableKlasses.forEach(cssKlass => removeCssElementKlass(button, cssKlass))
+}
+
+const setButtonText = (text) => {
+  const btnText = copyButton.querySelector('#btn-copy-text');
+  btnText.innerText = text;
 }
 
 const displayCopyIcon = () => {
@@ -40,12 +49,13 @@ const hideStartTip = () => {
 }
 
 const displayCopyingTip = () => {
-  const copyingTip = copyButton.querySelector('#copying-tip');
+  const copyingTip = document.querySelector('#copying-tip');
   copyingTip.classList.remove('d-none');
 }
 
 const hideCopyingTip = () => {
-  const copyingTip = copyButton.querySelector('#copying-tip');
+  const copyingTip = document.querySelector('#copying-tip');
+
   copyingTip.classList.add('d-none');
 }
 
@@ -70,18 +80,17 @@ const hideResetTip = () => {
 }
 
 const resetCopyButton = (copyButton) => {
-  // console.log('RESETTTTTTTTT')
   setButtonDisableToFalse();
   setButtonText('Copy list');
   displayCopyIcon();
   displayStartTip();
   hideCopyingTip();
   hideResetIcon();
+  hideResetTip();
 }
 
 
 const disableCopyButton = (copyButton) => {
-  // console.log('hi disable')
   setButtonDisableToTrue();
   setButtonText('Copied! ✌️');
   hideCopyIcon();
@@ -97,10 +106,10 @@ const isButtonDisabled = (copyButton = null) => {
 
 const manageState = () => {
   const copyButton = document.querySelector('#message');
-  if (isButtonDisabled(copyButton)) {
-    resetCopyButton(copyButton);
-  } else {
-    disableCopyButton(copyButton);
+  if (btnHasText('Copy')) {
+    if (!isButtonDisabled(copyButton)) {
+      disableCopyButton(copyButton);
+    }
   }
 };
 
@@ -113,7 +122,6 @@ const makeItPurple = (dayDiv) => {
 };
 
 const changeBackgroundColor = (input) => {
-  // event.currentTarget.style.backgroundColor = '#611365'
   const dayDiv = input.parentElement.parentElement;
   if (dayDiv.classList.contains('bg-purple')) {
     backToDefault(dayDiv);
@@ -122,23 +130,16 @@ const changeBackgroundColor = (input) => {
   };
 };
 
-// changeBackgroundColor(event.currentTarget)
-// const resetButtonIfChangeCheckbox = (input) => {
-//   input.addEventListener('change', (event) => {
-//     if (isButtonDisabled()) {
-//       resetCopyButton();
-//     };
-//   });
-// }
+const btnHasText = (text) => {
+  const btnText = copyButton.querySelector('#btn-copy-text');
+  return btnText.innerText.includes(text);
+}
 
-// const changeCheckbox = (input) => {
-//   input.addEventListener('change', (event) => {
-//     changeBackgroundColor(event.currentTarget)
-//   })
-// };
+
 
 const manageCopyButtonState = () => {
   const copyButton = document.querySelector('#message');
+
   copyButton.addEventListener('click', manageState)
 
   const inputs = document.querySelectorAll('input[type="checkbox"]');
@@ -156,19 +157,24 @@ const manageCopyButtonState = () => {
 
   document.querySelector('#reset-icon').addEventListener('mouseover', (event) => {
     setButtonText('Reset');
-    hideCopyingTip()
-    displayResetTip()
+    hideCopyingTip();
+    displayResetTip();
+    const copyButton = document.querySelector('#message');
+    removeCssElementKlass(copyButton, 'btn-ext--disabled')
   })
   document.querySelector('#reset-icon').addEventListener('mouseleave', (event) => {
-    setButtonText('Copied! ✌️');
-    displayCopyingTip()
-    hideResetTip()
+    if(btnHasText('Reset')) {
+      setButtonText('Copied! ✌️');
+      displayCopyingTip();
+      hideResetTip();
+      addCssElementKlass(copyButton, 'btn-ext--disabled')
+
+    }
   })
 
   const icon = document.querySelector('#reset-icon');
   icon.addEventListener('click', () => {
-    // reset btn
-    // reset checkboxes
+    resetCopyButton();
     Array.from(inputs).filter(input => input.checked).forEach((input) => {
       changeBackgroundColor(input);
       input.checked = false;
