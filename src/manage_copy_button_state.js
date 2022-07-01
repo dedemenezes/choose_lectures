@@ -1,15 +1,3 @@
-const setButtonDisableToTrue = (copyButton = null) => {
-  const button = copyButton || getCopyButton()
-  cssDisableKlasses.forEach(cssKlass => addCssElementKlass(button, cssKlass))
-}
-
-
-
-const setButtonText = (text) => {
-  const btnText = copyButton.querySelector('#btn-copy-text');
-  btnText.innerText = text;
-}
-
 const displayCopyIcon = () => {
   const icon = document.querySelector('#copy-icon')
   icon.classList.remove('d-none')
@@ -95,12 +83,6 @@ const manageState = () => {
     }
   }
 };
-
-
-
-
-
-
 
 const manageCopyButtonState = () => {
   const copyButton = getCopyButton()
