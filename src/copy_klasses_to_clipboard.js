@@ -23,40 +23,18 @@ const copyMessage = () => {
   navigator.clipboard.writeText(message)
 };
 
-// const manageState = (event) => {
-//   // const purple = "rgb(180, 26, 188)";
-//   event.currentTarget.disabled = true
-//   event.currentTarget.classList.add('btn-ext--bg-purple')
-//   event.currentTarget.classList.add('btn-ext--disabled')
-//   btnText = document.getElementById('btn-copy-text')
-//   tip = document.getElementById('start-tip')
-//   icon = document.getElementById('copy-icon')
-//   btnText.innerText = 'Copied! ✌️'
-//   document.getElementById('copying-tip').classList.remove('d-none')
-//   icon.classList.add('d-none')
-//   tip.classList.add('d-none')
-// }
-
-const createList = (event) => {
+const createList = () => {
   localStorage.setItem('message', buildMessage(buildCalendar()));
   copyMessage()
-  // manageState(event)
-  // event.currentTarget.disabled = true
-  // event.currentTarget.classList.add('btn-ext--bg-purple')
-  // event.currentTarget.classList.add('btn-ext--disabled')
-  // btnText = document.getElementById('btn-copy-text')
-  // tip = document.getElementById('start-tip')
-  // icon = document.getElementById('copy-icon')
-  // btnText.innerText = 'Copied! ✌️'
-  // document.getElementById('copying-tip').classList.remove('d-none')
-  // icon.classList.add('d-none')
-  // tip.classList.add('d-none')
 };
 
 
 const copyKlassesToClipboard = () => {
   copyButton = getCopyButton()
-  copyButton.addEventListener('click', createList)
+  copyButton.addEventListener('click', () => {
+    createList();
+    manageState();
+  })
 }
 
 copyKlassesToClipboard();

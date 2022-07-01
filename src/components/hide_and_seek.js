@@ -30,12 +30,12 @@ const hideCopyingTip = () => {
 }
 
 const displayResetIcon = () => {
-  const resetIcon = document.querySelector('#reset-icon');
+  const resetIcon = getResetIcon();
   resetIcon.classList.remove('d-none')
 }
 
 const hideResetIcon = () => {
-  const resetIcon = document.querySelector('#reset-icon');
+  const resetIcon = getResetIcon();
   resetIcon.classList.add('d-none')
 }
 
@@ -47,7 +47,4 @@ const displayResetTip = () => {
 const hideResetTip = () => {
   const resetTip = document.querySelector('#reset-tip');
   resetTip.classList.add('d-none')
-}
-const hideAndSeek = () => {
-
 }
